@@ -74,7 +74,7 @@
           <div class="form-group row">
             <label for="dibayar" class="col-sm-2 col-form-label">Bayar</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="dibayar" name="dibayar" onclick="hitungKembalian()" required>
+              <input type="number" class="form-control" id="bayar" name="bayar" onclick="hitungKembalian()" required>
             </div>
           </div>
           <div class="card-footer text-center">
@@ -93,7 +93,7 @@
       </div>
       <div class="table-responsive p-3">
         <table class="table align-items-center table-flush" id="dataTable">
-          <thead class="thead-dark">
+          <thead class="thead-primary">
             <tr>
               <th>No</th>
               <th>Nama Outlet</th>
@@ -109,7 +109,7 @@
           <tbody>
             <tr>
               @php
-                $kode_invoice_terpilih = $transaksi->pluck('kode_invoice')->first();
+                $kode_invoice_terpilih = $transaksis->pluck('kode_invoice')->first();
                @endphp
 
               @foreach ($details as $detail)

@@ -24,7 +24,7 @@ class TransaksiController extends Controller
     public function index()
     {
         //
-        return view('transaksi.index'); // tambahkan variabel $selected_paket dan $harga ke dalam view
+        return view('transaksi.index');
        
     }
 
@@ -119,8 +119,8 @@ class TransaksiController extends Controller
         $member     = Member::all();
         $outlet     = Outlet::all();
         $user       = User::all();
-        $transaksi  = Transaksi::find($transaksi->id);
-        return view('transaksi.show', compact('transaksi', 'member', 'outlet', 'user'));
+        $transaksis  = Transaksi::find($transaksi->id);
+        return view('transaksi.show', compact('transaksis', 'member', 'outlet', 'user'));
     }
 
     /**
@@ -132,12 +132,12 @@ class TransaksiController extends Controller
     public function edit(Transaksi $transaksi, Paket $paket)
     {
         //
-        $transaksi = Transaksi::all();
+        $transaksis = Transaksi::all();
         $pakets     = Paket::all();
         $member    = Member::all();
         $details   = DetailTransaksi::all();
         $autoId = 'trx' . sprintf('%03d', Transaksi::count() + 1);
-        return view('transaksi.proses', compact ('pakets', 'member', 'transaksi', 'details','autoId'));
+        return view('transaksi.proses', compact ('pakets', 'member', 'transaksis', 'details','autoId'));
 
     }
 

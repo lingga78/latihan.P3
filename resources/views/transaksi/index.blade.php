@@ -23,7 +23,7 @@
           <tbody>
             <tr>
               @php
-                $kode_invoice_terpilih = $transaksi->pluck('kode_invoice')->first();
+                $kode_invoice_terpilih = $transaksis->pluck('kode_invoice')->first();
                @endphp
 
               @foreach ($details as $detail)
@@ -36,26 +36,23 @@
                   <td>Rp. {{ number_format($detail->paket->harga * $detail->qty, 0, ',', '.') }}</td>
                   <td>{{ $detail->transaksi->dibayar }}</td>
                   <td>{{ $detail->transaksi->status }}</td>
-                  <td>
-                    @if (auth()->user()->role == 'kasir' || auth()->user()->role == 'admin')
-                      <form action="{{ route('transaksi.updateStatus',$detail->transaksi->id ) }} " method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <button type="submit" class="btn btn-info">Update Status</button>
-                      </form>
+                  <td class="th4">
+                    @if (auth()->user()->role == 'kasir || auth()->user()->role == 'admin')
+                    <form action="{{ route('transaksi.updateStatus',$detail->transaksi->id ) }} " method="POST">
+                      @csrf
+                      @method('PATCH')
+                      <button type="submit" class="btn btn-info">Update Status</button>
+                    </form>
                     @endif
                     <br>                  
                           <a href="{{ route('transaksi.invoice', ['transaksi' => $detail->transaksi->id]) }}" class="btn btn-info">Invoice</a>
                 </td>
-                </td>
                 </tr>
               @endforeach
-
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
-      ㅤ
  @endsection

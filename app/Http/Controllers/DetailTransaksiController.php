@@ -18,9 +18,9 @@ class DetailTransaksiController extends Controller
     {
         //
         $details         = DetailTransaksi::all();
-        $transaksi       = Transaksi::all();
+        $transaksis      = Transaksi::all();
         $paket           = Paket::all();
-        return view('detail_transaksi.index', compact('details','transaksi','paket'));
+        return view('transaksi.index', compact('details','transaksis','paket'));
     }
 
     /**
@@ -70,7 +70,7 @@ class DetailTransaksiController extends Controller
         $detailTransaksi->transaksi_id = $transaksiModel->id;
         $detailTransaksi->paket_id = $paket->id;
         $detailTransaksi->qty = $request->qty;
-        // $detailTransaksi->bayar = $request->bayar;
+        $detailTransaksi->bayar = $request->bayar;
     
         $detailTransaksi->save();
 
