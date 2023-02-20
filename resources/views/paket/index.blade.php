@@ -30,7 +30,7 @@
         <thead>
         <tr>
           <th>No</th>
-          <th>Outlet Id</th>
+          <th>Nama Outlet</th>
           <th>Jenis</th>
           <th>Nama Paket</th>
           <th>Harga</th>

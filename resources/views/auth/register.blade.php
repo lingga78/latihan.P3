@@ -18,7 +18,7 @@
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1"><b>Laundry</b>Cyin</a>
+      <a href="../../index2.html" class="h1"><b>Hello</b>Laundry</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>

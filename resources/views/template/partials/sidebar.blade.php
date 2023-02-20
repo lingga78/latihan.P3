@@ -2,7 +2,7 @@
   <!-- Brand Logo -->
   <a href="{{ asset('adminlte/index3.html')}}" class="brand-link">
       <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-dark">LaundryCyin</span>
+      <span class="brand-text font-weight-dark">Hello Laundry</span>
     </a>
   <!-- Sidebar -->
   <div class="sidebar">
@@ -34,7 +34,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                <a href="{{ route('dashboard.admin') }}" class="nav-link">
+                <a href="/dashboard/admin" class="nav-link">
                 <i class="nav-icon fas fa-user-circle"></i>               
                    <p>Admin</p>
               </p>

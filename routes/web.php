@@ -8,7 +8,6 @@ use App\Http\Controllers\OutletController;
 use App\Http\Controllers\PaketController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\DetailTransaksiController;
 
 
 /*
@@ -26,7 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/', 'template.master');
+Route::view('/', 'home');
 
 Route::view('/home', 'template.master');
 
@@ -37,15 +36,14 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout.admin');
 Route::get('register', [RegisterController::class, 'register'])->name('register')->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
 
-Route::get('dashboard/admin', [DashboardController::class, 'admin'])->name('dashboard.admin')->middleware('auth');
-Route::get('dashboard/kasir', [DashboardController::class, 'kasir'])->name('dashboard.kasir')->middleware('auth');
-Route::get('dashboard/owner', [DashboardController::class, 'owner'])->name('dashboard.owner')->middleware('auth');
+Route::get('dashboard/admin', [DashboardController::class, 'admin'])->name('dashboard.admin')->middleware('auth', 'role:admin');
+Route::get('dashboard/kasir', [DashboardController::class, 'kasir'])->name('dashboard.kasir')->middleware('auth', 'role:kasir,admin');
+Route::get('dashboard/owner', [DashboardController::class, 'owner'])->name('dashboard.owner')->middleware('auth', 'role:owner,admin');
 
-Route::resource('outlet', OutletController::class);
-Route::resource('paket', PaketController::class);
-Route::resource('member', MemberController::class);
-Route::resource('transaksi', TransaksiController::class);
-Route::resource('detailtransaksi', DetailTransaksiController::class);
+Route::resource('outlet', OutletController::class)->middleware('auth', 'role:outlet');
+Route::resource('paket', PaketController::class)->middleware('auth', 'role:paket');
+Route::resource('member', MemberController::class)->middleware('auth', 'role:member');
+Route::resource('transaksi', TransaksiController::class)->middleware('auth', 'role:transaksi');
 
 
 Route::view('error/403', 'error.403')->name('error.403');

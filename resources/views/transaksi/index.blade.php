@@ -81,7 +81,7 @@
 
 <script>
     $(function () {
-     $('#data-tarnsaksi').DataTransaksi();
+     $('#data-transaksi').DataTransaksi();
         
       $('#example2').DataTransaksi({
         "paging": true,

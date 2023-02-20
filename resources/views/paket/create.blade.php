@@ -16,11 +16,11 @@
          @csrf
        <div class="card-body">
          <div class="form-group" >
-         <label>Id Outlet</label>
+         <label>Nama Outlet</label>
             <select class="form-control" aria-label="Default select example" name="outlet_id" >
             <option selected>Open this select menu</option>
             @foreach ($outlet as $item)
-            <option value="{{ $item->id}}">{{ $item->id }}</option>
+            <option value="{{ $item->id}}">{{ $item->nama. ' | '. $item->alamat }}</option>
             @endforeach
             </select>
            </div>
