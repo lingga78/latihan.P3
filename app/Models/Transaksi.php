@@ -14,18 +14,4 @@ class Transaksi extends Model
         'tgl_bayar','biaya_tambahan','diskon','pajak','status','dibayar','user_id'
     ];
 
-    public function outlet()
-    {
-        return $this->hasOne('App\Outlet','outlet_id');
-    }
-
-    public function Member()
-    {
-        return $this->hasOne('App\Member','member_id');
-    }
-    
-    public function user()
-    {
-        return $this->hasOne('App\User','user_id');
-    }
 }

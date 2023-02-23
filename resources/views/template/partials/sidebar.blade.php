@@ -36,53 +36,33 @@
                <li class="nav-item">
                 <a href="/dashboard/admin" class="nav-link">
                 <i class="nav-icon fas fa-user-circle"></i>               
-                   <p>Admin</p>
+                  <p>Admin</p>
               </p>
             </a>
           </li>
-             <li class="nav-header">LIST DATA OUTLET</li>
-              <li class="nav-item">
-                <a href="/outlet" class="nav-link">
-                  <i class="nav-icon fas fa-home"></i>
-                  <p>
-                    Outlet
-                  </p>
-                </a>
-               </li>
-             <li class="nav-header">LIST DATA PAKET</li>
-              <li class="nav-item">
-                <a href="/paket" class="nav-link">
-                  <i class="nav-icon 	fas fa-cubes"></i>
-                  <p>
-                    Paket
-                  </p>
-                </a>
-              </li>
-              <li class="nav-header">LIST DATA MEMBER</li>
-              <li class="nav-item">
-                <a href="/member" class="nav-link">
-                  <i class="nav-icon fas fa-user-friends"></i>
-                  <p>
-                    Member
-                  </p>
-                </a>
-               </li>
-               <li class="nav-header">LIST DATA TRANSAKSI</li>
-              <li class="nav-item">
-                <a href="/transaksi" class="nav-link">
-                  <i class="nav-icon fas fa-dollar-sign"></i>
-                  <p>
-                    Transaksi
-                  </p>
-                </a>
-               </li>
-              <li class="nav-item">
-                <a href="{{ route('logout.admin') }}" class="nav-link">
-                <i class="nav-icon fas fa-sign-in-alt"></i>               
-                   <p>Logout</p>
+          <li class="nav-item">
+                <a href="/dashboard/kasir" class="nav-link">
+                <i class="nav-icon fas fa-user-circle"></i>               
+                  <p>Kasir</p>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+                <a href="/dashboard/owner" class="nav-link">
+                <i class="nav-icon fas fa-user-circle"></i>               
+                  <p>Owner</p>
+              </p>
+            </a>
+          </li>
+          <br>
+          <li class="nav-item">
+               <a href="{{ route('logout.admin') }}" class="nav-link">
+              <i class="nav-icon fas fa-sign-in-alt"></i>               
+                  <p>Logout</p>
                    </a>
                  </li>
               </li>
+            </li>
           </ul>
        </nav>
       <!-- /.sidebar-menu -->
