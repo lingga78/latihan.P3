@@ -7,11 +7,10 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
+            <div class="small-box bg-danger">
               <div class="inner">
                 <h3>Outlet</h3>
 
-                <p>Tambah Data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -22,11 +21,10 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-success">
+            <div class="small-box bg-warning">
               <div class="inner">
                 <h3>Paket</h3>
 
-                <p>Tambah Data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -37,11 +35,10 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-success">
               <div class="inner">
                 <h3>Member</h3>
 
-                <p>Tambah Data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -52,11 +49,10 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-danger">
+            <div class="small-box bg-info">
               <div class="inner">
                 <h3>Transaksi</h3>
 
-                <p>Tambah Data</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

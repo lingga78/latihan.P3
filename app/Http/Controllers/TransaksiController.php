@@ -83,7 +83,8 @@ class TransaksiController extends Controller
     {
         //
        $pakets = Paket::all()->where('outlet_id', $transaksi->outlet_id);
-       return view('transaksi.proses', compact ('pakets'));
+       $member = Member::all();
+       return view('transaksi.proses', compact ('pakets', 'member'));
 
     }
 

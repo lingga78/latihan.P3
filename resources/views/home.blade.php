@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ asset('landing page/assets/img/logo2.png')}}" class="img-fluid animated" alt="">
+          <img src="{{ asset('landing page/assets/img/icon2.png')}}" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
@@ -84,32 +84,33 @@
         <div class="row" data-aos="zoom-in">
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-1.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/kaos2.png')}}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-2.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/jaket.png')}}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-3.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/celana.png')}}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-4.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/hoodie.png')}}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-5.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/kaoskaki.png')}}" class="img-fluid" alt="">
           </div>
 
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('landing page/assets/img/clients/client-6.png')}}" class="img-fluid" alt="">
+            <img src="{{ asset('landing page/assets/img/clients/selimut.png')}}" class="img-fluid" alt="">
           </div>
 
         </div>
 
       </div>
+      
     </section><!-- End Cliens Section -->
 
   <!-- Vendor JS Files -->

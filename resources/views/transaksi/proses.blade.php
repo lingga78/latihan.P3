@@ -52,6 +52,14 @@
         <div class="card-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Pilih Data Member</label>
+            <select name="id_member" id="id_member" class="form-control">
+              <option selected disabled>--Pilih Data member--</option>
+              @forelse ($member as $member)
+                <option value="{{ $member->id }}">{{ $member->nama. ' | '. $member->alamat  }}</option>                  
+              @empty
+                <option selected disabled>Tidak Ada Member </option>
+              @endforelse
+            </select>
           </div>
         </div>
     </div>

@@ -1,18 +1,18 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="{{ asset('adminlte/index3.html')}}" class="brand-link">
+  <!-- <a href="{{ asset('adminlte/index3.html')}}" class="brand-link">
       <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-dark">Hello Laundry</span>
-    </a>
+    </a> -->
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('adminlte/dist/img/londri2.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Lingga Khairunnisa</a>
+          <a href="#" class="d-block"><b>Hello Laundry</b></a>
         </div>
       </div>
 
@@ -35,21 +35,21 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                 <a href="/dashboard/admin" class="nav-link">
-                <i class="nav-icon fas fa-user-circle"></i>               
+                <i class="nav-icon fas fa-user-tie"></i>               
                   <p>Admin</p>
               </p>
             </a>
           </li>
           <li class="nav-item">
                 <a href="/dashboard/kasir" class="nav-link">
-                <i class="nav-icon fas fa-user-circle"></i>               
+                <i class="nav-icon fas fa-user-tie"></i>               
                   <p>Kasir</p>
               </p>
             </a>
           </li>
           <li class="nav-item">
                 <a href="/dashboard/owner" class="nav-link">
-                <i class="nav-icon fas fa-user-circle"></i>               
+                <i class="nav-icon fas fa-user-tie"></i>               
                   <p>Owner</p>
               </p>
             </a>
@@ -61,11 +61,11 @@
                   <p>Logout</p>
                    </a>
                  </li>
-              </li>
+
             </li>
           </ul>
        </nav>
-      <!-- /.sidebar-menu -->
-    </div>
+
+  </div>
     <!-- /.sidebar -->
   </aside>

@@ -49,7 +49,7 @@ class DetailTransaksiController extends Controller
         $detailTransaksi = new DetailTransaksi;
         $detailTransaksi->transaksi_id  = $transaksi;
         $detailTransaksi->paket_id      = $request->id_paket;
-        $detailTransaksi->qyt           = $request->qty;
+        $detailTransaksi->qty           = $request->qty;
         $detailTransaksi->save();
 
         return redirect()->route('transaksi.proses', $transaksi);
