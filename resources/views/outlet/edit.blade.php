@@ -5,7 +5,7 @@
 @endsection
 
 @section ('content')
-<div class="card card-primary">
+<div class="card card-info">
               <div class="card-header">
                 <h3 class="card-title">Edit</h3>
               </div>
@@ -30,8 +30,8 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Save</button>
-
+                  <button type="submit" class="btn btn-info">Save</button>
+                  <button type="reset" class="btn btn-danger">Reset</button>
                 </div>
               </form>
             </div>

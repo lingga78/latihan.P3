@@ -30,8 +30,8 @@
         <thead>
         <tr>
           <th>No</th>
-          <th>Outlet Id</th>
-          <th>Kode Invoice</th>
+          <th>Nama Outlet</th>
+          <th>Nama Member</th>
           <th>Tanggal</th>
           <th>Status</th>
           <th>Dibayar</th>
@@ -42,8 +42,8 @@
           @forelse($transaksi as $transaksi)
          <tr>
           <td>{{ $loop->iteration }}</td>
-          <td>{{ $transaksi->outlet_id }}</td>
-          <td>{{ $transaksi->kode_invoice}}</td>
+          <td>{{ $transaksi->outlet->nama }}</td>
+          <td>{{ $transaksi->member->nama}}</td>
           <td>{{ $transaksi->tgl }}</td>
           <td>{{ $transaksi->status }}</td>
           <td>{{ $transaksi->dibayar }}</td>

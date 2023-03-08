@@ -16,6 +16,10 @@ class DetailTransaksiController extends Controller
     public function index()
     {
         //
+        $detailTransaksi = DetailTransaksi::all();
+        $transaksi       = Transaksi::all();
+        $paket           = Paket::all();
+        return view('detail_transaksi.index', compact('detailTransaksi','transaksi','paket'));
     }
 
     /**
@@ -98,5 +102,8 @@ class DetailTransaksiController extends Controller
     public function destroy(DetailTransaksi $detailTransaksi)
     {
         //
+        // $detailTransaksi = DetailTransaksi::find($transaksis->id);
+        // $detailTransaksi->delete();
+        // return redirect('/transaksi');
     }
 }

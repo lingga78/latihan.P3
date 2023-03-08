@@ -16,19 +16,17 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-@include ('template.partials.navbar')
-  <!-- /.navbar -->
-</div>
+  @include ('template.partials.navbar')
+  </div>
   <!-- Main Sidebar Container -->
   @include('template.partials.sidebar')
-
+</div>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header"> 
-  @include('template.partials.title')
+    @include('template.partials.title')
     </section>
-
     <!-- Main content -->
     <section class="content">
       @include('template.partials.content')
@@ -38,7 +36,6 @@
   </div>
   <!-- /.content-wrapper -->
   @include('template.partials.footer');
-
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

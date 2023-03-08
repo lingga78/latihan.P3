@@ -15,7 +15,6 @@
           <a href="#" class="d-block"><b>Hello Laundry</b></a>
         </div>
       </div>
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -27,12 +26,12 @@
           </div>
         </div>
       </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               @if (auth()->user()->role === 'admin')
                <li class="nav-item">
                 <a href="/dashboard/admin" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>               
@@ -40,6 +39,44 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">LIST OUTLET</li>
+          <li class="nav-item">
+                <a href="/outlet" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>               
+                  <p>Outlet</p>
+              </p>
+            </a>
+            <li class="nav-header">LIST PAKET</li>
+          </li><li class="nav-item">
+                <a href="/paket" class="nav-link">
+                <i class="nav-icon fas fa-box"></i>               
+                  <p>Paket</p>
+              </p>
+            </a>
+            <li class="nav-header">LIST MEMBER</li>
+          </li><li class="nav-item">
+                <a href="/member" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>               
+                  <p>Member</p>
+              </p>
+            </a>
+            <li class="nav-header">LIST TRANSAKSI</li>
+          </li><li class="nav-item">
+                <a href="/transaksi" class="nav-link">
+                <i class="nav-icon fas fa-dollar-sign"></i>               
+                  <p>Transaksi</p>
+              </p>
+            </a>
+            <li class="nav-header">LIST PENGGUNA</li>
+          </li><li class="nav-item">
+                <a href="/user" class="nav-link">
+                <i class="nav-icon fas fa-user-alt"></i>               
+                  <p>Pengguna</p>
+              </p>
+            </a>
+          @endif
+
+          @if (auth()->user()->role === 'kasir')
           <li class="nav-item">
                 <a href="/dashboard/kasir" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>               
@@ -47,6 +84,9 @@
               </p>
             </a>
           </li>
+          @endif
+
+          @if (auth()->user()->role === 'owner')
           <li class="nav-item">
                 <a href="/dashboard/owner" class="nav-link">
                 <i class="nav-icon fas fa-user-tie"></i>               
@@ -54,6 +94,7 @@
               </p>
             </a>
           </li>
+          @endif
           <br>
           <li class="nav-item">
                <a href="{{ route('logout.admin') }}" class="nav-link">
@@ -61,11 +102,9 @@
                   <p>Logout</p>
                    </a>
                  </li>
-
             </li>
           </ul>
        </nav>
-
   </div>
-    <!-- /.sidebar -->
+  
   </aside>
