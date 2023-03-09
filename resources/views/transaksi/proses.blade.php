@@ -64,7 +64,6 @@
       </div>
      </div>
     
-
   </div>
   <!--/.col (left) -->
   <!-- right column -->
@@ -96,7 +95,6 @@
           <th>Status</th>
           <th>Dibayar</th>
           <th>Harga</th>
-          <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -105,13 +103,12 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $transaksi->outlet->nama }}</td>
           <td>{{ $transaksi->member->nama}}</td>
-          <td>{{ $transaksi->kode_invoice }}</td>
+          <td>{{ $transaksi->kode_invoice  }}</td>
           <td>{{ $transaksi->tgl }}</td>
           <td>{{ $transaksi->status }}</td>
           <td>{{ $transaksi->dibayar }}</td>
-          <td>{{ $transaksi->paket }}</td>
-          <td>
-          <form action="{{ route ('transaksi.destroy', [$transaksi->id])}}" method="POST">
+          <td>{{ $transaksi->harga }}</td>
+          <!-- <form action="{{ route ('transaksi.destroy', [$transaksi->id])}}" method="POST">
               <a class="btn btn-info mr-3" href="transaksi/{{$transaksi->id}}">
               <i class="fas fas fa-exclamation-circle"></i> Detail</a>
               <a class="btn btn-warning mr-3" href="transaksi/{{$transaksi->id}}/edit">
@@ -125,7 +122,7 @@
           </button>
           </form>
             </td>
-         </tr>
+         </tr> -->
          @empty
          <tr>
           <td>Data Masih Kosong</td>

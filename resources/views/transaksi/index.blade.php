@@ -19,23 +19,17 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-    <a href="transaksi/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"></i>
-           Tambah
-        </a>
-        <br>
-        </tr>
-        <br>
       <table id="example2" class="table table-bordered table-hover">
         <thead>
         <tr>
-          <th>No</th>
+        <th>No</th>
           <th>Nama Outlet</th>
           <th>Nama Member</th>
+          <th>Kode Invoice</th>
           <th>Tanggal</th>
           <th>Status</th>
           <th>Dibayar</th>
-          <th>Action</th>
+          <th>Harga</th>
         </tr>
         </thead>
         <tbody>
@@ -44,23 +38,11 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $transaksi->outlet->nama }}</td>
           <td>{{ $transaksi->member->nama}}</td>
+          <td>{{ $transaksi->kode_invoice }}</td>
           <td>{{ $transaksi->tgl }}</td>
           <td>{{ $transaksi->status }}</td>
           <td>{{ $transaksi->dibayar }}</td>
-          <td>
-          <form action="{{ route ('transaksi.destroy', [$transaksi->id])}}" method="POST">
-              <a class="btn btn-info mr-3" href="transaksi/{{$transaksi->id}}">
-              <i class="fas fas fa-exclamation-circle"></i> Detail</a>
-              <a class="btn btn-warning mr-3" href="transaksi/{{$transaksi->id}}/edit">
-              <i class="fas fa-edit	"></i> Edit</a>
-              <form action="/transaksi/{{$transaksi->id}}" method="POST">
-            @csrf
-            @method('DELETE')
-           <button type="submit" class="btn btn-danger" value="Delete">
-           <i class="far fa-trash-alt"></i> 
-            Delete
-          </button>
-          </form>
+          <td>{{ $transaksi->harga }}</td>
             </td>
          </tr>
          @empty

@@ -17,10 +17,9 @@
 <div class="wrapper">
   <!-- Navbar -->
   @include ('template.partials.navbar')
-  </div>
+</div>
   <!-- Main Sidebar Container -->
   @include('template.partials.sidebar')
-</div>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -41,7 +40,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
-</div>
 <!-- ./wrapper -->
 
 <!-- jQuery -->

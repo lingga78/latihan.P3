@@ -22,7 +22,7 @@
     }
     body {
       
-       background-image: url("{{asset('adminlte/dist/img/register.jpg')}}");
+       background-image: url("{{asset('adminlte/dist/img/laundri.jpg')}}");
        height: 100%;
       /* Center and scale the image nicely */
       background-position: center;

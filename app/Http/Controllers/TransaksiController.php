@@ -42,10 +42,10 @@ class TransaksiController extends Controller
         $transaksi = new Transaksi;
         $transaksi->outlet_id           = Auth::user()->outlet_id;
         $transaksi->kode_invoice        = '';
-        $transaksi->member_id           = '1';
-        $transaksi->tgl                 = Carbon::now()->format('Y-m-d');
-        $transaksi->batas_waktu         = Carbon::now()->format('Y-m-d');
-        $transaksi->tgl_bayar           = Carbon::now()->format('Y-m-d');
+        $transaksi->member_id           = $request->member_id;
+        $transaksi->tgl                 = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
+        $transaksi->batas_waktu         = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
+        $transaksi->tgl_bayar           = Carbon::now('Asia/Jakarta')->format('Y-m-d H:i:s');
         $transaksi->biaya_tambahan      = 0;
         $transaksi->diskon              = 0;
         $transaksi->pajak               = 0;
@@ -126,7 +126,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::all();
         $pakets    = Paket::all();
         $member    = Member::all();
-         return view('transaksi.proses', compact ('pakets', 'member', 'transaksi'));
+        return view('transaksi.proses', compact ('pakets', 'member', 'transaksi'));
 
     }
 
@@ -141,7 +141,7 @@ class TransaksiController extends Controller
     {
         //
         $request->validate([
-            'outlets_id'            => 'required',
+            'outlet_id'            => 'required',
             'kode_invoice'          => 'required',
             'members_id'            => 'required',
             'tgl'                   => 'required',
@@ -155,7 +155,7 @@ class TransaksiController extends Controller
             'user_id'               => 'required',
         ]);
         $transaksi = Transaksi::find($transaksi->id);
-        $transaksi-> outlets_id         = $request->outlets_id;
+        $transaksi-> outlet_id          = $request->outlet_id;
         $transaksi-> kode_invoice       = $request->kode_invoice;
         $transaksi-> members_id         = $request->members_id;
         $transaksi-> tgl                = $request->tgl;
