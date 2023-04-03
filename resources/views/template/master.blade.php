@@ -18,6 +18,7 @@
   <!-- Navbar -->
   @include ('template.partials.navbar')
 </div>
+</li>
   <!-- Main Sidebar Container -->
   @include('template.partials.sidebar')
   <!-- Content Wrapper. Contains page content -->

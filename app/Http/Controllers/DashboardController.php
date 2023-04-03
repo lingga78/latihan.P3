@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -15,9 +15,10 @@ class DashboardController extends Controller
     }
 
     public function kasir()
-    {
+    { 
         $members = Member::all();
-        return view('dashboard.kasir', compact('members'));
+        $transaksi = Transaksi::all();
+        return view('dashboard.kasir', compact('members','transaksi'));
     }
 
     public function owner()

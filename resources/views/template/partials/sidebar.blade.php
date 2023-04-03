@@ -75,7 +75,6 @@
               </p>
             </a>
           @endif
-
           @if (auth()->user()->role === 'kasir')
           <li class="nav-item">
                 <a href="/dashboard/kasir" class="nav-link">
@@ -85,7 +84,6 @@
             </a>
           </li>
           @endif
-
           @if (auth()->user()->role === 'owner')
           <li class="nav-item">
                 <a href="/dashboard/owner" class="nav-link">
@@ -102,9 +100,9 @@
                   <p>Logout</p>
                    </a>
                  </li>
-            </li>
+             </li>
           </ul>
        </nav>
   </div>
-  
+
   </aside>

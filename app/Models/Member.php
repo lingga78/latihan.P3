@@ -13,8 +13,14 @@ class Member extends Model
         'nama', 'alamat', 'jenis_kelamin', 'tlp'
     ];
 
+    public function detailtransaksi()
+    {
+        return $this->belongsTo('App\Models\DetailTransaksi', 'detailtransaksi_id', 'id')->onDelete('cascade');
+    }
     public function transaksi()
     {
-        return $this->belongsTo('App\Models\Transaksi', 'transaksi');
+        return $this->belongsTo('App\Models\Transaksi', 'transaksi_id')->onDelete(function ($transaksi){
+            $transaksi->delete();
+        });
     }
 }

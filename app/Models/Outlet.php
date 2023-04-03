@@ -15,7 +15,9 @@ class Outlet extends Model
 
     public function paket()
     {
-        return $this->belongsTo('App\Models\Paket', 'paket');
+        return $this->belongsTo('App\Models\Paket', 'paket')->onDelete(function ($paket){
+            
+        });
     }
     public function detail_transaksis()
     {

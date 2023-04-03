@@ -1,79 +1,61 @@
 @extends('template.master')
 
-@section('judul')
-    <h1>Halaman Transaksi</h1>
-@endsection
-
 @section('content')
-<div class="card">
-    <div class="card-header">
-    <div class="card-tools">
-    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-      <h3 class="card-title">Data Transaksi</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <table id="example2" class="table table-bordered table-hover">
-        <thead>
-        <tr>
-        <th>No</th>
-          <th>Nama Outlet</th>
-          <th>Nama Member</th>
-          <th>Kode Invoice</th>
-          <th>Tanggal</th>
-          <th>Status</th>
-          <th>Dibayar</th>
-          <th>Harga</th>
-        </tr>
-        </thead>
-        <tbody>
-          @forelse($transaksi as $transaksi)
-         <tr>
-          <td>{{ $loop->iteration }}</td>
-          <td>{{ $transaksi->outlet->nama }}</td>
-          <td>{{ $transaksi->member->nama}}</td>
-          <td>{{ $transaksi->kode_invoice }}</td>
-          <td>{{ $transaksi->tgl }}</td>
-          <td>{{ $transaksi->status }}</td>
-          <td>{{ $transaksi->dibayar }}</td>
-          <td>{{ $transaksi->harga }}</td>
-            </td>
-         </tr>
-         @empty
-         <tr>
-          <td>Data Masih Kosong</td>
-        </tr>
-
-        @endforelse
-      </table>
-    </div>
-    <!-- /.card-body -->
+<div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
   
-@endsection
+  <div class="table-responsive p-3">
+    <table class="table align-items-center table-flush" id="dataTable">
+      <thead class="thead-dark">
+            <tr>
+              <th>No</th>
+              <th>Nama Outlet</th>
+              <th>Nama Paket</th>
+              <th>Harga</th>
+              <th>Qty</th>
+              <th>Total Harga </th>
+              <th>Status</th>
+              <th>Status Pembayaran</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              @php
+                $kode_invoice_terpilih = $transaksi->pluck('kode_invoice')->first();
+               @endphp
 
-@push('scripts')
-<script src="{{ asset ('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset ('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+              @foreach ($details as $detail)
+                <tr>
+                  <td>{{ $loop->iteration }}</td>
+                  <td>{{ $detail->paket->outlet->nama }}</td>
+                  <td>{{ $detail->paket->nama_paket }}</td>
+                  <td>Rp. {{ number_format($detail->paket->harga, 0, ',', '.') }}</td>
+                  <td><center>{{ $detail->qty }}</center></td>
+                  <td>Rp. {{ number_format($detail->paket->harga * $detail->qty, 0, ',', '.') }}</td>
+                  <td>{{ $detail->transaksi->dibayar }}</td>
+                  <td>{{ $detail->transaksi->status }}</td>
+                  <td>
+                    @if (auth()->user()->role == 'kasir' || auth()->user()->role == 'admin')
+                      <form action="{{ route('transaksi.updateStatus',$detail->transaksi->id ) }} " method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-info">Update Status</button>
+                      </form>
+                    @endif
+                    <br>                  
+                          <a href="{{ route('transaksi.invoice', ['transaksi' => $detail->transaksi->id]) }}" class="btn btn-info">Invoice</a>
+                </td>
+                </td>
+                </tr>
+              @endforeach
 
-<script>
-    $(function () {
-     $('#data-transaksi').DataTransaksi();
-        
-      $('#example2').DataTransaksi({
-        "paging": true,
-        "lengthChange": true,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": true,
-        "responsive": true,
-      });
-    });
-  </script>
-@endpush
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+      ㅤ
+ @endsection

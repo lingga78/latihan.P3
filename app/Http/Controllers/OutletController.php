@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Outlet;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OutletController extends Controller
@@ -73,7 +74,7 @@ class OutletController extends Controller
      * @param  \App\Models\Outlet  $outlet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outlet $outlet)
+    public function edit(Request $request, Outlet $outlet)
     {
         //
         $outlet = Outlet::find($outlet->id);

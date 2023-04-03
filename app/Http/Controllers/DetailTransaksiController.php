@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailTransaksi;
 use App\Models\Transaksi;
+use App\Models\Paket;
 use Illuminate\Http\Request;
 
 class DetailTransaksiController extends Controller
@@ -16,10 +17,10 @@ class DetailTransaksiController extends Controller
     public function index()
     {
         //
-        $detailTransaksi = DetailTransaksi::all();
+        $details         = DetailTransaksi::all();
         $transaksi       = Transaksi::all();
         $paket           = Paket::all();
-        return view('detail_transaksi.index', compact('detailTransaksi','transaksi','paket'));
+        return view('detail_transaksi.index', compact('details','transaksi','paket'));
     }
 
     /**
@@ -30,6 +31,10 @@ class DetailTransaksiController extends Controller
     public function create()
     {
         //
+        // $detailTransaksi = DetailTransaksi::find($transaksi->id);
+        // $transaksi       = Transaksi::all();
+        // $paket           = Paket::all();
+        // return view('detail_transaksi.create', compact('detailTransaksi','transaksi','paket'));
     }
 
     /**
@@ -42,21 +47,68 @@ class DetailTransaksiController extends Controller
     {
         //
         $request->validate([
-            'id_paket'  => 'required',
-            'qty'       => 'required'
-        ],
+            'paket_id' => 'required',
+            'qty' => 'required',
+        ], 
         [
-            'id_paket.required' => 'Pilih Paket',
-            'qty.required'      => 'Isi Qty'
+            'paket_id.required' => 'Pilih Paket',
+            'qty.required' => 'Isi Qty'
         ]);
+    
+        $transaksiModel = Transaksi::findOrFail($transaksi);
+
+        // mencari paket dengan id yang sesuai
+        $paket = Paket::find($request->paket_id);
+        if (!$paket) {
+            return redirect()->back()->withErrors(['Paket tidak ditemukan']);
+        }
+
+        // Mengambil data outlet terkait dari paket
+        $outlet = $paket->outlet;
 
         $detailTransaksi = new DetailTransaksi;
-        $detailTransaksi->transaksi_id  = $transaksi;
-        $detailTransaksi->paket_id      = $request->id_paket;
-        $detailTransaksi->qty           = $request->qty;
+        $detailTransaksi->transaksi_id = $transaksiModel->id;
+        $detailTransaksi->paket_id = $paket->id;
+        $detailTransaksi->qty = $request->qty;
+        // $detailTransaksi->bayar = $request->bayar;
+    
         $detailTransaksi->save();
 
-        return redirect()->route('transaksi.proses', $transaksi);
+
+        $latestInvoice = Transaksi::orderBy('created_at', 'desc')->pluck('kode_invoice')->first();
+        $latestInvoiceNumber = substr($latestInvoice, 3);
+        $newInvoiceNumber = $latestInvoiceNumber + 1;
+        $newInvoiceId = 'trx' . str_pad($newInvoiceNumber, 3, '0', STR_PAD_LEFT);
+
+        // Mengambil nama outlet dari data outlet terkait
+        $autoId = $newInvoiceId;
+        $detailTransaksi->save();
+
+        return redirect()->route('transaksi.proses', compact('transaksi','autoId','outlet', 'transaksiModel'));
+    }
+    
+    public function updateStatus(Request $request, $id)
+    {
+        $transaksi = Transaksi::findOrFail($id);
+        $transaksi->status = 'selesai';
+        $transaksi->dibayar = 'dibayar';
+        $transaksi->save();
+
+        return redirect()->route('transaksi.proses',$transaksi);
+    }
+
+
+    public function invoice($id)
+    {
+        $transaksi = Transaksi::where('id', $id)->where('status', 'Selesai')->first();
+
+        if (!$transaksi) {
+            return view('transaksi.no_invoice');
+        }
+
+        $details = DetailTransaksi::where('transaksi_id', $transaksi->id)->get();
+
+        return view('transaksi.invoice', compact('transaksi', 'details'));
     }
 
     /**
@@ -102,8 +154,6 @@ class DetailTransaksiController extends Controller
     public function destroy(DetailTransaksi $detailTransaksi)
     {
         //
-        // $detailTransaksi = DetailTransaksi::find($transaksis->id);
-        // $detailTransaksi->delete();
-        // return redirect('/transaksi');
+        
     }
 }
